@@ -1,32 +1,25 @@
 <template>
 	<div id="app">
-		<h1>MatchUp</h1>
-		<div class="footer">
-			<router-link to="/profile" custom v-slot="{ navigate, href, route }">
-				<a :href="href" @click="navigate">
-					<button class="footer-link">{{ route.fullPath }}</button>
-				</a>
-			</router-link>
-			<router-link to="/swipe" custom v-slot="{ navigate, href, route }">
-				<a :href="href" @click="navigate">
-					<button class="footer-link">{{ route.fullPath }}</button>
-				</a>
-			</router-link>
-			<router-link to="/matches" custom v-slot="{ navigate, href, route }">
-				<a :href="href" @click="navigate">
-					<button class="footer-link">{{ route.fullPath }}</button>
-				</a>
-			</router-link>
+		<div class="title">
+			<h1>MatchUp</h1>
 		</div>
-		<transition name="fade" mode="out-in">
-			<router-view class="view"></router-view>
-		</transition>
+		<div class="content">
+			<transition name="fade" mode="out-in">
+				<router-view class="view"></router-view>
+			</transition>
+		</div>
+		<Navigation/>
 	</div>
 </template>
 
 <script>
+import Navigation from "./components/Navigation.vue";
+
 export default {
 	name: "App",
+	components: {
+		Navigation,
+	},
 	data() {
 		return {
 			transitionName: "slide-left",
@@ -51,10 +44,16 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	width: 100vw;
 	height: 100vh;
-	display: flex;
 	justify-content: center;
+	display: flex;
 }
-.footer {
+.title {
+	position: absolute;
+}
+.content {
+	position: absolute;
+}
+.navigation {
 	position: absolute;
 	bottom: 0;
 }
