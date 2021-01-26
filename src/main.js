@@ -13,9 +13,9 @@ const router = new VueRouter({
 	mode: "history",
 	base: __dirname,
 	routes: [
-		{ path: "/profile", component: Profile },
+		{ path: "/profile", component: Profile, },
 		{ path: "/swipe", component: Swipe },
-		{ path: "/matches", component: Matches },
+		{ path: "/matches", component: Matches, },
 	],
 });
 

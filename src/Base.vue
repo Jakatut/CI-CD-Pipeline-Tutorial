@@ -1,25 +1,16 @@
 <template>
-	<div id="app">
-		<div id="header">
-			<h1>MatchUp</h1>
-		</div>
-		<div id="content">
-			<transition name="slide" mode="out-in">
-				<router-view class="view"></router-view>
-			</transition>
-		</div>
-		<Navigation id="navigation" />
-	</div>
+   <div class="parent">
+      <h2>Parent</h2>
+      <transition :name="transitionName">
+        <router-view class="child-view"></router-view>
+      </transition>
+    </div>
 </template>
 
 <script>
-import Navigation from "./components/Navigation.vue";
 
 export default {
-	name: "App",
-	components: {
-		Navigation,
-	},
+	name: "Base",
 	data() {
 		return {
 			transitionName: "slide-left",
@@ -35,29 +26,6 @@ export default {
 </script>
 
 <style>
-body {
-	margin: 0 !important;
-}
-#app {
-	font-family: Avenir, HBaseelvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	width: 100vw;
-	height: 100vh;
-	justify-content: center;
-	display: flex;
-}
-#header {
-	position: absolute;
-}
-#content {
-	position: absolute;
-	margin-top: 50px;
-}
-#navigation {
-	position: absolute;
-	bottom: 0;
-}
 .fade-enter-active, .fade-leave-active {
   transition: opacity .75s ease;
 }
