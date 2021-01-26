@@ -1,26 +1,16 @@
 <template>
 	<div id="profile">
-		<h2>Profile</h2>
+		<PageTitle title="Profile"/>
 	</div>
 </template>
 
 <script>
+import PageTitle from "./components/PageTitle.vue";
+
 export default {
 	name: "Profile",
+    components: {
+        PageTitle,
+    },
 };
 </script>
-
-<style>
-body {
-	margin: 0 !important;
-}
-#profile {
-	font-family: Avenir, Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-}
-</style>

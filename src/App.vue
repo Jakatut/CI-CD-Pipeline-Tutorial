@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<div class="title">
+		<div class="header">
 			<h1>MatchUp</h1>
 		</div>
 		<div class="content">
@@ -47,11 +47,12 @@ body {
 	justify-content: center;
 	display: flex;
 }
-.title {
+.header {
 	position: absolute;
 }
 .content {
 	position: absolute;
+	margin-top: 50px;
 }
 .navigation {
 	position: absolute;
