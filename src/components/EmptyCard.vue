@@ -1,27 +1,26 @@
 <template>
-	<div class="emptyCard">
-		<h3>{{ message }}</h3>
-	</div>
+    <div class="emptyCard">
+        <h3>{{ message }}</h3>
+    </div>
 </template>
 
 <script>
 export default {
-	name: "EmptyCard",
-	props: {
+    name: 'EmptyCard',
+    props: {
         message: {
             type: String,
-            required: true
-        }
-	},
+            required: true,
+        },
+    },
 };
 </script>
 
-<style>
+<style scoped>
 .emptyCard {
-	height: 500px;
-	width: 400px;
-	border: solid;
-	border-radius: 20px;
-	text-align: center;
+    height: 550px;
+    width: 350px;
+    border: solid;
+    border-radius: 20px;
 }
 </style>

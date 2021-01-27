@@ -1,12 +1,12 @@
 <template>
-	<div class="title">
-		<h2>{{ title }}</h2>
-	</div>
+    <div class="title">
+        <h2>{{ title }}</h2>
+    </div>
 </template>
 
 <script>
 export default {
-	name: "PageTitle",
+    name: 'PageTitle',
     props: {
         title: {
             type: String,
@@ -16,8 +16,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .title {
-    text-align: center;
+    margin-top: 20px;
 }
 </style>

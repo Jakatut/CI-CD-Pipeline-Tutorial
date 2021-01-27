@@ -1,15 +1,9 @@
 <template>
-	<div id="profile">
-		<PageTitle title="Matches" />
-	</div>
+    <div id="profile"></div>
 </template>
 
 <script>
-import PageTitle from "./components/PageTitle.vue";
 export default {
-	name: "Matches",
-	components: {
-		PageTitle,
-	},
+    name: 'Matches',
 };
 </script>
