@@ -1,6 +1,9 @@
 name: LayingPipe
 
-on: [push]
+on: 
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -8,10 +11,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Run a one-line script
-      run: echo Hello World!
-    - name: Run a multi-line script
+    - uses: actions/setup-node@v2
+      with:
+          node-version: '14'
+    - name: npm install
+      run: npm install
+    - name: npm test
       run: |
-        echo Add other shit,
-        echo Add more shit
+        npm test --if-present
+      env:
+        CI: true
+    
+    - name: npm build
+      run: npm build
 
