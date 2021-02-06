@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test": "vue-cli-service test:unit"
+    "test": "vue-cli-service test:unit --passWithNoTests"
   },
   "dependencies": {
     "@vue/cli-plugin-unit-jest": "^4.5.11",
