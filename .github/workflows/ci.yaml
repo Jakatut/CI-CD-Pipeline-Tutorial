@@ -19,7 +19,6 @@ jobs:
     - name: npm test
       run: |
         npm test
-        if: success()
       env:
         CI: true
     
