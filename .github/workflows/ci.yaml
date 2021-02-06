@@ -17,9 +17,9 @@ jobs:
     - name: npm install
       run: npm install
     - name: npm test
-      if: success()
       run: |
         npm test
+        if: success()
       env:
         CI: true
     
