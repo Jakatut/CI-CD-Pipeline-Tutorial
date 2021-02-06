@@ -8,7 +8,13 @@ import { Auth0Plugin } from './auth';
 import { domain, clientId } from '../auth_config.json';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -26,7 +32,6 @@ Vue.use(Auth0Plugin, {
 });
 
 library.add(faUserSecret);
-Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 const router = new VueRouter({
     mode: 'history',

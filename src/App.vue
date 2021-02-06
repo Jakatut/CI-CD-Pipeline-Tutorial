@@ -30,7 +30,6 @@ export default {
     },
     computed: {
         isSplashPage() {
-            console.log(this.$route);
             return this.$route.path === '/';
         },
     },
@@ -56,12 +55,9 @@ body {
     font-family: Avenir, HBaseelvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    width: 100vw;
     height: 100vh;
-    justify-content: center;
+    width: 100vw;
     text-align: center;
-    display: flex;
-    overflow: hidden;
     background: #06beb6; /* fallback for old browsers */
     background: -webkit-linear-gradient(
         to right,
@@ -77,13 +73,15 @@ body {
 #header {
     display: flex;
     flex-direction: row;
-}
-#title {
-    position: relative;
+    justify-content: center;
+    margin: 0 auto;
 }
 #content {
-    position: absolute;
-    margin-top: 75px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
 }
 #navigation {
     position: fixed;
