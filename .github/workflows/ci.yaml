@@ -23,5 +23,6 @@ jobs:
         CI: true
     
     - name: npm build
+      if: success()
       run: npm build --if-present
 
