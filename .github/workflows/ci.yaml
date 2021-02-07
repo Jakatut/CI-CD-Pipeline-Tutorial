@@ -12,8 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        all_commits: true
-        all_tags: true
+        fetch-depth: 0
     - uses: actions/setup-node@v2
       with:
           node-version: '14'
