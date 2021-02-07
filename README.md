@@ -1,52 +1,64 @@
-# Instruction for creating a vue application with a CI/CD pipeline, hosted on GCP
+# Instruction for creating a vue application with a CI/CD pipeline, hosted on Heroku
 
 ## What you'll need installed
 
-- Docker
 - node/npm
 - gcloud cli
-- kubectl cli
+
+---
 
 ## Creating the Vue application
 
 ```shell
 npm install -g @vue/cli
 vue create app_name
+```
+
+Follow the command line instructions. Add whatever you'd like to the application.
+Navigate into the application and install the following dependencies:
+
+```shell
 cd app_name
+npm install @vue/cli-plugin-unit-jest
+npm install @vue/test-utils
+```
+
+Build and run the app to make sure everything works
+
+```shell
 npm run build
+npm run serve
 ```
 
-### Create a Docker Image That bundles the Vue App with nginx
+Navigate to localhost:8080 in the browser to view the application.
+
+### Setup a git repository
+
+Create a new git repo
+
+---
+
+## CI/CD With Github Actions and Heroku
+
+### Setup the heroku app
+
+Start by downloading the heroku CLI application
+
+Linux:
 
 ```shell
-# Dockerfile
-FROM nginx:1.17
-COPY ./nginx.conf /etc/nginx/nginx.conf
-WORKDIR /app
-COPY ./dist .
-EXPOSE 8080
-CMD ["nginx", "-g", "daemon off;"]
+sudo span install --classic heroku
 ```
 
-### Build a docker image
+macOS:
 
 ```shell
-docker build -t cicd .
+brew tap heroku/brew && bre install heroku
 ```
 
-### Start the container
+Make sure to login to heroku via the cli with:
 
 ```shell
-docker run -d --rm --name app_name -p 3000:8080 cicd
+heroku login
 ```
 
-Test that your application is working by navigation to localhost:8080
-
-You should see a basic vue application.
-Changes made to the src _should_ be mirrored in the docker container.
-
-### Stop the container
-
-```shell
-docker stop app_name
-```

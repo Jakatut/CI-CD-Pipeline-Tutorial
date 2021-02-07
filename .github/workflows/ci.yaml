@@ -33,11 +33,13 @@ jobs:
         npm test --passWithNoTests
       env:
         CI: true
-      continue-on-error: false
 
     - name: Add heroku remote
+      if: ${{success()}}
       run: |
+        echo Success
         git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
+
     - name: Deploy to heroku
       run: |
         git push heroku HEAD:main -f
