@@ -33,18 +33,7 @@ jobs:
         npm test --passWithNoTests
       env:
         CI: true
-
-    - name: test output success
-      if: steps.tests.outputs.OUTPUT == 0
-      run: |
-        echo steps.tests.outputs.OUTPUT
-        echo Success
-
-    - name: test output failure
-      if: steps.tests.outputs.OUTPUT == 1
-      run: |
-        echo steps.tests.outputs.OUTPUT
-        echo failed
+      continue-on-error: false
 
     - name: Add heroku remote
       run: |
