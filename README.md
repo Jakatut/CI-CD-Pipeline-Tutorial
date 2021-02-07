@@ -34,7 +34,14 @@ Navigate to localhost:8080 in the browser to view the application.
 
 ### Setup a git repository
 
-Create a new git repo
+Create a new git repo:
+
+```shell
+git init
+git remote add origin <origin-url>
+git branch -M main
+git push -u origin main
+```
 
 ---
 
@@ -47,7 +54,7 @@ Start by downloading the heroku CLI application
 Linux:
 
 ```shell
-sudo span install --classic heroku
+sudo snap install --classic heroku
 ```
 
 macOS:
