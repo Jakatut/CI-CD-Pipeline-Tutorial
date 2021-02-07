@@ -21,21 +21,30 @@ jobs:
       with:
           node-version: '14'
     - name: npm install
-      run: npm install
-
-    - name: sucess check
-      if: success()
       run: |
-        echo "success"
+        npm install
 
     - name: npm build
       run: npm build --if-present
 
     - name: npm test
+      id: tests
       run: |
         npm test --passWithNoTests
       env:
         CI: true
+
+    - name: test output success
+      if: steps.tests.outputs.OUTPUT == 0
+      run: |
+        echo "steps.tests.outputs.OUTPUT"
+        echo "Success"
+
+    - name: test output failure
+      if: steps.tests.outputs.OUTPUT == 1
+      run: |
+        echo "steps.tests.outputs.OUTPUT"
+        echo "failed"
 
     - name: Add heroku remote
       run: |
