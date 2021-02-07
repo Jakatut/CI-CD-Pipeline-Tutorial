@@ -36,8 +36,6 @@ jobs:
         npm test --passWithNoTests
       env:
         CI: true
-      if: failure()
-        echo Test Failed
 
     - name: Add heroku remote
       run: |
