@@ -22,8 +22,11 @@ jobs:
           node-version: '14'
     - name: npm install
       run: npm install
+
+    - name: sucess check
       if: success()
-        echo install worked
+      run: |
+        echo "success"
 
     - name: npm build
       run: npm build --if-present
