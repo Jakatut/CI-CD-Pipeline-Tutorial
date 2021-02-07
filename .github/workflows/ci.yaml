@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+  pull_request:
+    branches:
+      -main
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,13 +22,27 @@ jobs:
           node-version: '14'
     - name: npm install
       run: npm install
+      if: success()
+        echo install worked
+
     - name: npm build
       run: npm build --if-present
-    - name: npm test 
+
+    - name: build fail
+      if: success()
+        echo Build Failed
+      
+    - name: build passed
+      if: success()
+        echo Build succeeded
+
+    - name: npm test
       run: |
         npm test --passWithNoTests
       env:
         CI: true
+      if: failure()
+        echo Test Failed
 
     - name: Add heroku remote
       run: |
