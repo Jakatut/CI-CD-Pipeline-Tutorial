@@ -16,13 +16,18 @@ jobs:
           node-version: '14'
     - name: npm install
       run: npm install
+    - name: npm build
+      run: npm build --if-present
     - name: npm test
       run: |
         npm test
       env:
         CI: true
     
-    - name: npm build
-      run: npm build --if-present
 
-
+    - name: Add heroku remote
+      run: |
+        git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
+    - name: Deploy to heroku
+      run: |
+        git push heroku HEAD:main -f
