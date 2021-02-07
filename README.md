@@ -60,7 +60,7 @@ sudo snap install --classic heroku
 macOS:
 
 ```shell
-brew tap heroku/brew && bre install heroku
+brew tap heroku/brew && brew install heroku
 ```
 
 Make sure to login to heroku via the cli with:
