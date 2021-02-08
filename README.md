@@ -79,6 +79,7 @@ Test the cli works by logging in and deploying our app.
 ```shell
 heroku login
 heroku git:remote -a <project-name>
+heroku buildpacks:add https://github.com/heroku/heroku-buildpack-nodejs
 heroku buildpacks:add https://github.com/heroku/heroku-buildpack-static
 
 git add .
