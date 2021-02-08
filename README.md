@@ -1,9 +1,11 @@
 # Instruction for creating a vue application with a CI/CD pipeline, hosted on Heroku
 
-## What you'll need installed
+## What you'll need
 
 - [Node](https://nodejs.org/en/download/)
 - [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli/)
+- A Github repository
+- A Heroku Account and project.
 
 ---
 
