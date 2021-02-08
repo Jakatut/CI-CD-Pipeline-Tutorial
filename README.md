@@ -2,8 +2,8 @@
 
 ## What you'll need installed
 
-- [https://nodejs.org/en/download/](node/npm)
-- [https://devcenter.heroku.com/articles/heroku-cli](heroku cli)
+- [Node](https://nodejs.org/en/download/)
+- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli/)
 
 ---
 
