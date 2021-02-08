@@ -2,8 +2,8 @@
 
 ## What you'll need installed
 
-- node/npm
-- gcloud cli
+- [https://nodejs.org/en/download/](node/npm)
+- [https://devcenter.heroku.com/articles/heroku-cli](heroku cli)
 
 ---
 
@@ -94,12 +94,7 @@ With Github actions, we can easy build, test, and deploy our application.
 
 ### Setup a Github Action
 
-Some of the following steps can be done in github if you prefer to by navigating to your project's Github repository
-and clicking Actions. From there, click the *Actions* tab. From here, you can see multiple sample workflows. Click the one at the top titled "Simple Workflow".
-
-Setting up your action from here will automatically create a .github folder with a workflows subfolder. This subfolder contains the yaml definitions for each action.
-
-If you would rather do this locally, run these commands:
+To initiate a github action, we need a workflow configuration setup. We can define these as `.github/workflows/name.yaml` from the root of the project:
 
 ```shell
 mkdir -p .github/workflows
@@ -112,7 +107,7 @@ Open this file in your favorite editor and we'll get started.
 
 ### The Workflow YAML
 
-ci.yaml is where you define your _workflow_. Using the YAML syntax, we can define things like event triggers, jobs, environment varialbes and more. A workflow can be made up of one or more jobs. Using contexts, we can access information about workflow runs, environments, jobs, steps, etc.
+ci.yaml is where you define your `workflow`. Using the `YAML` syntax, we can define things like `event triggers`, `jobs`, `environment varialbes` and more. A workflow can be made up of one or more jobs. Using `contexts`, we can access information about workflow runs, environments, jobs, steps, etc.
 
 There's a lot of power in these YAML configurations. It might benefit you to take a look at the [workflow YAML syntax documentation](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#about-yaml-syntax-for-workflows)
 
@@ -138,7 +133,7 @@ on:
 
 Perfect! We have a workflow named my_ci_cd_workflow that will run on any push or pull request to main.
 
-But this isn't very useful without any _jobs_. We can setup some jobs by adding the label of the same name. Each job needs an id to associate with the job. It can be anything really, in this case, we'll just call it build.
+But this isn't very useful without any jobs. We can setup some jobs by adding the label of the same name. Each job needs an id to associate with the job. It can be anything really, in this case, we'll just call it build.
 
 ```yaml
 jobs:
@@ -235,11 +230,11 @@ To quickly go through each step, we build the project, then run tests with a fla
 
 We also created an Environment variable on the test job. This sets the varialbe `CI` to the value `true` to inform jest we are running in a CI environment.
 
-After, we add the heroku remote and deploy. You may spot a few new things: the `if` tag, and the ${{secrets.HEROKU_API_KEY}} in the heroku url.
+After, we add the heroku remote and deploy. You may spot a few new things: the `if` tag, and the `${{secrets.HEROKU_API_KEY}}` in the heroku url.
 
 The `if` tag allows us to specify a precondition that must be met for the step to execute. In this case, we use the success method to check the previous steps outcome.
 
-The ${{secrets}} uses the secrets context fed in by Github to access secrets. Each secret cna be created in the Secrets tab under the project settings.
+The `${{secrets}}` uses the secrets context fed in by Github. Each secret can be created in the Secrets tab under the project settings.
 
 The two secrets we need to add are the Heroku api key, and the Heroku project name.
 The api key can be retrived from your account settings on Heroku.
