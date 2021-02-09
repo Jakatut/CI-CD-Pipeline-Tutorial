@@ -60,52 +60,25 @@ git push -u origin main
 
 ### Setup the heroku app
 
-Start by downloading the heroku CLI application
-
-Linux:
-
-```shell
-sudo snap install --classic heroku
-```
-
-macOS:
-
-```shell
-brew tap heroku/brew && brew install heroku
-```
-
-Test the cli works by logging in and deploying our app.
-
 ```shell
 heroku login
 heroku git:remote -a <project-name>
 heroku buildpacks:add https://github.com/heroku/heroku-buildpack-nodejs
 heroku buildpacks:add https://github.com/heroku/heroku-buildpack-static
-
-git add .
-git commit -am "Push to heroku"
-git push heroku main
 ```
-
-If everything went well, you can visit your project at [https://project-name.herokuapp.com](https://project-name.herokuapp.com)
-
 ---
-
-We know our app works. We've pushed and verrified that it works on Heroku. The next step is setting up our CI/CD pipeline.
-This may sound like a huge task, but it's really dead simple for a project of this magnitude.
-
-With Github actions, we can easy build, test, and deploy our application.
 
 ### Setup a Github Action
 
-To initiate a github action, we need a workflow configuration setup. We can define these as `.github/workflows/name.yaml` from the root of the project:
+With Github actions, we can easy build, test, and deploy our application.
+To initiate an action, we need to setup a `workflow` configuration. We can define these under `.github/workflows/` from the root of the project:
 
 ```shell
 mkdir -p .github/workflows
 touch .github/workflos/ci.yaml
 ```
 
-Open this file in your favorite editor and we'll get started.
+Open this file in your editor and we'll get started.
 
 ---
 
