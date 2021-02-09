@@ -60,13 +60,21 @@ git push -u origin main
 
 ### Setup the heroku app
 
+After creating an app on heroku, come back to your terminal.
+
 ```shell
 heroku login
-heroku git:remote -a <project-name>
+heroku git:remote -a <app-name>
 heroku buildpacks:add https://github.com/heroku/heroku-buildpack-nodejs
 heroku buildpacks:add https://github.com/heroku/heroku-buildpack-static
 ```
 ---
+
+### Setup project secrets
+
+In your heroku account settings, find your api key. Reveal it and copy it. In your github project settings, click secrets. Add a new repository secret named HEROKU_API_KEY. Paste the key you copied into the value field and save it.
+
+Then, add a new repository secret named HEROKU_APP_NAME. Set the value to be the same as the name you chose for your heroku app and save it.
 
 ### Setup a Github Action
 
