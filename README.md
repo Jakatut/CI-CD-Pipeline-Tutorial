@@ -1,4 +1,4 @@
-# Instruction for creating a vue application with a CI/CD pipeline, hosted on Heroku
+# Creating a vue application with a CI/CD pipeline, hosted on Heroku
 
 ## What you'll need
 
